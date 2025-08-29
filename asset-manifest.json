@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/basketball-score-tracker/static/css/main.d669d681.css",
+    "main.js": "/basketball-score-tracker/static/js/main.a8c625b7.js",
+    "static/js/453.9288e533.chunk.js": "/basketball-score-tracker/static/js/453.9288e533.chunk.js",
+    "index.html": "/basketball-score-tracker/index.html",
+    "main.d669d681.css.map": "/basketball-score-tracker/static/css/main.d669d681.css.map",
+    "main.a8c625b7.js.map": "/basketball-score-tracker/static/js/main.a8c625b7.js.map",
+    "453.9288e533.chunk.js.map": "/basketball-score-tracker/static/js/453.9288e533.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d669d681.css",
+    "static/js/main.a8c625b7.js"
+  ]
+}
