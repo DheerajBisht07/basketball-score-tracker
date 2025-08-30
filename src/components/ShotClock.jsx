@@ -9,8 +9,7 @@ const ShotClock = ({ shotClock, setShotClock, isTimerRunning }) => {
         setShotClock(prev => prev - 1);
       }, 1000);
     } else if (shotClock === 0) {
-      // Handle shot clock violation
-      setShotClock(24); // Reset shot clock
+      setShotClock(24);
     }
     
     return () => clearInterval(interval);
@@ -22,17 +21,17 @@ const ShotClock = ({ shotClock, setShotClock, isTimerRunning }) => {
 
   return (
     <div className="shotclock-container text-center">
-      <h3 className="mb-3">Shot Clock</h3>
-      <div className="shotclock-display mb-3">{shotClock}</div>
-      <div className="d-flex justify-content-center gap-2">
+      <h5 className="mb-2">Shot Clock</h5>
+      <div className="shotclock-display mb-2">{shotClock}</div>
+      <div className="d-flex justify-content-center gap-1">
         <button 
-          className="btn btn-primary control-btn" 
+          className="btn btn-sm btn-primary control-btn" 
           onClick={resetShotClock}
         >
           Reset
         </button>
         <button 
-          className="btn btn-info control-btn" 
+          className="btn btn-sm btn-info control-btn" 
           onClick={() => setShotClock(14)}
         >
           Set to 14

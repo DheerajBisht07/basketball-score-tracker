@@ -1,15 +1,14 @@
 .App {
   background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
   min-height: 100vh;
-  padding: 20px 0;
+  padding: 10px;
 }
 
 .scoreboard {
-  background: linear-gradient(to bottom, #1a237e, #283593);
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
+  background: linear-gradient(to right, #0d6efd, #0dcaf0);
+  border-radius: 10px;
   color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .team-name {
@@ -45,38 +44,30 @@
 }
 
 .timer-container, .shotclock-container {
-  background: linear-gradient(to bottom, #2c3e50, #4a6572);
-  border-radius: 15px;
-  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px;
   color: white;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .timer-display, .shotclock-display {
-  font-size: 3.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  font-family: 'Courier New', monospace;
   background: rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  padding: 10px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  padding: 5px;
+  color: #fff;
 }
 
 .controls-container {
-  background: linear-gradient(to bottom, #34495e, #2c3e50);
-  border-radius: 15px;
-  padding: 20px;
-  color: white;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 }
-
-.control-btn {
-  font-weight: bold;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  transition: all 0.2s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+.control-btn, .score-btn {
+  font-size: 0.8rem;
+  padding: 4px 8px;
 }
 
 .control-btn:hover {
@@ -103,10 +94,26 @@
 }
 
 /* Modal Styles */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
 .modal-content {
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  border: none;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
 }
 
 .modal-header {
@@ -129,4 +136,86 @@
 .alert {
   border-radius: 8px;
   border: none;
+}
+.combined-components {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .score {
+    font-size: 2rem !important;
+  }
+  
+  .team-name {
+    font-size: 0.9rem;
+  }
+  
+  .timer-display, .shotclock-display {
+    font-size: 1.5rem;
+  }
+}
+
+/* Add to your existing CSS */
+.team-foul-container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.team-foul-display {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 8px;
+  margin: 0 auto;
+  max-width: 80px;
+}
+
+.foul-count {
+  font-size: 1.8rem;
+  font-weight: bold;
+  display: block;
+}
+
+.foul-btn {
+  font-size: 0.75rem;
+  padding: 4px 6px;
+  min-width: 70px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .team-foul-container {
+    padding: 15px 10px;
+  }
+  
+  .foul-count {
+    font-size: 1.5rem;
+  }
+  
+  .foul-btn {
+    font-size: 0.7rem;
+    padding: 3px 5px;
+    min-width: 60px;
+  }
+  
+  .team-foul-display {
+    max-width: 60px;
+    padding: 6px;
+  }
+}
+
+@media (max-width: 400px) {
+  .foul-btn {
+    min-width: 50px;
+    font-size: 0.65rem;
+    padding: 2px 4px;
+  }
+  
+  .foul-count {
+    font-size: 1.3rem;
+  }
 }
