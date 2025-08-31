@@ -6,8 +6,16 @@ const Scoreboard = ({
   setHomeScore, 
   setAwayScore,
   homeTeamName,
-  awayTeamName
+  awayTeamName,
+  time,
+  shotClock
 }) => {
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  };
+
   const updateScore = (team, points) => {
     if (team === 'home') {
       setHomeScore(prev => Math.max(0, prev + points));
@@ -51,9 +59,24 @@ const Scoreboard = ({
           </div>
         </div>
         
-        {/* VS Separator */}
+        {/* VS Separator - Moved to be parallel with scores */}
         <div className="col-2 text-center">
-          <div className="text-warning fw-bold">VS</div>
+          <div className="text-warning fw-bold mb-4" style={{fontSize: '1.8rem'}}>VS</div>
+          
+          {/* Game Clock and Shot Clock placed below VS */}
+          <div className="clocks-container">
+            {/* Game Clock - Different color */}
+            <div className="game-clock-display mb-1">
+              <div className="clock-label small text-info">Game Clock</div>
+              <div className="clock-value text-info fw-bold">{formatTime(time)}</div>
+            </div>
+            
+            {/* Shot Clock - Different color */}
+            <div className="shot-clock-display">
+              <div className="clock-label small text-warning">Shot Clock</div>
+              <div className="clock-value text-warning fw-bold">{shotClock}</div>
+            </div>
+          </div>
         </div>
         
         {/* Away Team */}

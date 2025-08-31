@@ -219,3 +219,181 @@
     font-size: 1.3rem;
   }
 }
+/* Responsive adjustments */
+
+/* Modal adjustments for mobile */
+.modal-content {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Ensure no horizontal scrolling on mobile */
+.combined-components {
+  overflow-x: hidden;
+}
+
+/* Add these styles to your App.css */
+
+/* Clocks container */
+/* CLOCK STYLING UPDATES */
+/* Game Clock - Orange color */
+.game-clock-display {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 8px 5px; /* Increased padding to prevent overflow */
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box; /* Ensure padding is included in width */
+  margin: 0 auto; /* Center the clock displays */
+  max-width: 120px; /* Limit maximum width */
+}
+
+.game-clock-display .clock-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #FFFF00 !important;
+  padding: 0 10px;
+  margin: 0;
+  line-height: 1.2; /* Proper line height */
+  display: block; /* Ensure it's a block element */
+  width: 100%; /* Full width within container */
+  text-align: center; /* Center text */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.game-clock-display .clock-label {
+  color: #FFFF00 !important;
+  margin-bottom: 4px;
+  opacity: 0.9;
+  font-size: 0.85rem;
+  display: block;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+/* Shot Clock - Red color */
+.shot-clock-display {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 8px 5px; /* Increased padding to prevent overflow */
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box; /* Ensure padding is included in width */
+  margin: 0 auto; /* Center the clock displays */
+  max-width: 120px; /* Limit maximum width */
+}
+
+.shot-clock-display .clock-value {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #000000 !important;
+  padding: 0 10px;
+  margin: 0;
+  line-height: 1.2; /* Proper line height */
+  display: block; /* Ensure it's a block element */
+  width: 100%; /* Full width within container */
+  text-align: center; /* Center text */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.shot-clock-display .clock-label {
+  color: #000000 !important;
+  margin-bottom: 4px;
+  opacity: 0.9;
+  font-size: 0.85rem;
+  display: block;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+/* Clocks container - ensures proper alignment */
+.clocks-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .clocks-container {
+    gap: 8px;
+  }
+  
+  .game-clock-display, 
+  .shot-clock-display {
+    padding: 6px 4px;
+    max-width: 100px;
+    background: none;
+  }
+  
+  .game-clock-display .clock-value,
+  .shot-clock-display .clock-value {
+    font-size: 2rem;
+    padding: 0 8px;
+  }
+  
+  .game-clock-display .clock-label,
+  .shot-clock-display .clock-label {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .game-clock-display, 
+  .shot-clock-display {
+    padding: 5px 3px;
+    max-width: 100px; /* Increased from 90px to accommodate 4 digits */
+    background: none;
+  }
+  
+  .game-clock-display .clock-value,
+  .shot-clock-display .clock-value {
+    font-size: 1.8rem; /* Slightly reduced from 1.3rem */
+    padding: 0 6px;
+  }
+
+  
+  .game-clock-display .clock-label,
+  .shot-clock-display .clock-label {
+    font-size: 0.7rem;
+    margin-bottom: 2px;
+  }
+}
+
+@media (max-width: 400px) {
+  .game-clock-display, 
+  .shot-clock-display {
+    padding: 4px 2px;
+    max-width: 80px;
+    background: none;
+  }
+  
+  .game-clock-display .clock-value,
+  .shot-clock-display .clock-value {
+    font-size: 1.5rem;
+    padding: 0 4px;
+  }
+  
+  .game-clock-display .clock-label,
+  .shot-clock-display .clock-label {
+    font-size: 0.65rem;
+  }
+}
+
+/* Ensure the VS separator and clocks container are properly aligned */
+.col-2.text-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* #FFFF00 #37b215  */

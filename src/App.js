@@ -25,26 +25,7 @@ function App() {
         
         {/* Combined components container */}
         <div className="combined-components">
-          {/* Top row with clocks */}
-          <div className="row g-2 mb-3">
-            <div className="col-6">
-              <Timer 
-                time={time} 
-                setTime={setTime}
-                isRunning={isTimerRunning}
-                setIsRunning={setIsTimerRunning}
-              />
-            </div>
-            <div className="col-6">
-              <ShotClock 
-                shotClock={shotClock} 
-                setShotClock={setShotClock}
-                isTimerRunning={isTimerRunning}
-              />
-            </div>
-          </div>
-          
-          {/* Scoreboard in the middle */}
+          {/* Scoreboard with integrated clocks */}
           <div className="row mb-3">
             <div className="col-12">
               <Scoreboard 
@@ -54,19 +35,36 @@ function App() {
                 setAwayScore={setAwayScore}
                 homeTeamName={homeTeamName}
                 awayTeamName={awayTeamName}
+                time={time}
+                shotClock={shotClock}
               />
             </div>
           </div>
           
-          {/* Team Fouls Component - NEW */}
+          {/* Team Fouls Component */}
           <div className="row mb-3">
             <div className="col-12">
               <TeamFoul />
             </div>
           </div>
           
-          {/* Controls at the bottom */}
-          <div className="row">
+          {/* Clock controls and game controls */}
+          <div className="row g-2">
+            <div className="col-md-6">
+              <Timer 
+                time={time} 
+                setTime={setTime}
+                isRunning={isTimerRunning}
+                setIsRunning={setIsTimerRunning}
+              />
+            </div>
+            <div className="col-md-6">
+              <ShotClock 
+                shotClock={shotClock} 
+                setShotClock={setShotClock}
+                isTimerRunning={isTimerRunning}
+              />
+            </div>
             <div className="col-12">
               <Controls 
                 setHomeScore={setHomeScore}

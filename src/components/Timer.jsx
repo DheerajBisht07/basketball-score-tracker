@@ -47,33 +47,6 @@ const Timer = ({ time, setTime, isRunning, setIsRunning }) => {
     setCustomTime('');
   };
 
-  const handleSetCustomTime = () => {
-    if (!customTime) return;
-    
-    const timeInSeconds = parseInt(customTime);
-    
-    if (isNaN(timeInSeconds) || timeInSeconds <= 0) {
-      alert('Please enter a valid time in seconds');
-      return;
-    }
-    
-    if (timeInSeconds > 600) {
-      alert('Time cannot exceed 10 minutes (600 seconds)');
-      return;
-    }
-    
-    setTime(timeInSeconds);
-    setCustomTime('');
-  };
-
-  const handleTimeChange = (e) => {
-    const value = e.target.value;
-    // Only allow numbers and empty string
-    if (value === '' || /^\d+$/.test(value)) {
-      setCustomTime(value);
-    }
-  };
-
   return (
     <div className="timer-container text-center">
       <h5 className="mb-2">Game Clock</h5>
@@ -94,28 +67,6 @@ const Timer = ({ time, setTime, isRunning, setIsRunning }) => {
         >
           Reset
         </button>
-      </div>
-      
-      {/* Custom Time Input */}
-      <div className="custom-time-section">
-        <div className="input-group input-group-sm mb-1">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Seconds (max 600)"
-            value={customTime}
-            onChange={handleTimeChange}
-            maxLength="3"
-          />
-          <button 
-            className="btn btn-info"
-            onClick={handleSetCustomTime}
-            disabled={!customTime}
-          >
-            Set
-          </button>
-        </div>
-        <small className="text-white-50">Max: 10 minutes (600s)</small>
       </div>
     </div>
   );
