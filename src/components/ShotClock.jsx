@@ -35,7 +35,8 @@ const ShotClock = ({ shotClock, setShotClock, isTimerRunning }) => {
   return (
     <div className="shotclock-container text-center">
       <h5 className="mb-2">Shot Clock</h5>
-      <div className="shotclock-display mb-2">{shotClock}</div>
+      {/* shot clock is hidden uncomment to shot clock  */}
+      {/* <div className="shotclock-display mb-2">{shotClock}</div> */}
       <div className="d-flex justify-content-center gap-1">
         <button 
           className="btn btn-sm btn-primary control-btn" 

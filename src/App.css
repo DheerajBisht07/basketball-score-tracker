@@ -236,7 +236,6 @@
 
 /* Clocks container */
 /* CLOCK STYLING UPDATES */
-/* Game Clock - Orange color */
 .game-clock-display {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
@@ -273,7 +272,7 @@
   font-weight: bold;
 }
 
-/* Shot Clock - Red color */
+
 .shot-clock-display {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
@@ -322,6 +321,7 @@
 }
 
 /* Responsive adjustments for mobile */
+/* Responsive adjustments for mobile */
 @media (max-width: 768px) {
   .clocks-container {
     gap: 8px;
@@ -329,42 +329,53 @@
   
   .game-clock-display, 
   .shot-clock-display {
-    padding: 6px 4px;
-    max-width: 100px;
-    background: none;
+    padding: 8px 6px;
+    max-width: 110px; /* Increased width for game clock */
+    background: none; /* Keep background visible */
   }
   
   .game-clock-display .clock-value,
   .shot-clock-display .clock-value {
-    font-size: 2rem;
-    padding: 0 8px;
+    font-size: 1.5rem; /* Slightly smaller for better fit */
+    padding: 0 5px;
+    margin: 0 auto; /* Ensure centering */
+    width: fit-content; /* Allow natural width */
+  }
+  .game-clock-display .clock-value{
+    margin-left: -12px;
   }
   
   .game-clock-display .clock-label,
   .shot-clock-display .clock-label {
-    font-size: 0.75rem;
+    font-size: 1.2rem;
+    margin: 0 auto 4px auto; /* Center and add bottom margin */
+    width: fit-content; /* Allow natural width */
   }
 }
 
 @media (max-width: 576px) {
   .game-clock-display, 
   .shot-clock-display {
-    padding: 5px 3px;
-    max-width: 100px; /* Increased from 90px to accommodate 4 digits */
-    background: none;
+    padding: 6px 4px;
+    max-width: 105px; 
+    background: none; /* Keep background visible */
   }
   
   .game-clock-display .clock-value,
   .shot-clock-display .clock-value {
-    font-size: 1.8rem; /* Slightly reduced from 1.3rem */
-    padding: 0 6px;
+    font-size: 1.3rem; 
+    padding: 0 4px;
+    margin: 0 auto; /* Ensure centering */
+    width: fit-content; /* Allow natural width */
+    letter-spacing: -0.5px; /* Slightly compress for 4 digits */
   }
 
   
   .game-clock-display .clock-label,
   .shot-clock-display .clock-label {
-    font-size: 0.7rem;
-    margin-bottom: 2px;
+    font-size: 1rem;
+    margin: 0 auto 3px auto; /* Center and add bottom margin */
+    width: fit-content; /* Allow natural width */
   }
 }
 
@@ -372,20 +383,42 @@
   .game-clock-display, 
   .shot-clock-display {
     padding: 4px 2px;
-    max-width: 80px;
-    background: none;
+    max-width: 90px;
+    background: none; /* Keep background visible */
   }
   
   .game-clock-display .clock-value,
   .shot-clock-display .clock-value {
-    font-size: 1.5rem;
-    padding: 0 4px;
+    font-size: 1rem;
+    padding: 0 3px;
+    margin: 0 auto; /* Ensure centering */
+    width: fit-content; /* Allow natural width */
+    letter-spacing: -0.5px; /* Slightly compress for 4 digits */
+  }
+   .game-clock-display .clock-value{
+    margin-left: -10vwpx;
   }
   
   .game-clock-display .clock-label,
   .shot-clock-display .clock-label {
-    font-size: 0.65rem;
+    font-size: 0.8rem;
+    margin: 0 auto 2px auto; /* Center and add bottom margin */
+    width: fit-content; /* Allow natural width */
   }
+}
+
+.game-clock-display .clock-value,
+.shot-clock-display .clock-value {
+  /* Change from width: 100% to: */
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.game-clock-display .clock-label,
+.shot-clock-display .clock-label {
+  /* Change from width: 100% to: */
+  width: fit-content;
+  margin: 0 auto 4px auto;
 }
 
 /* Ensure the VS separator and clocks container are properly aligned */
@@ -395,5 +428,3 @@
   align-items: center;
   justify-content: center;
 }
-
-/* #FFFF00 #37b215  */

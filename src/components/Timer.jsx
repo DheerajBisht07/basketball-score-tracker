@@ -50,7 +50,8 @@ const Timer = ({ time, setTime, isRunning, setIsRunning }) => {
   return (
     <div className="timer-container text-center">
       <h5 className="mb-2">Game Clock</h5>
-      <div className="timer-display mb-2">{formatTime(time)}</div>
+      {/* game clock is hidden uncomment to show game clock */}
+      {/* <div className="timer-display mb-2">{formatTime(time)}</div> */}
       
       {/* Toggle and Reset Buttons */}
       <div className="d-flex justify-content-center gap-1 flex-wrap mb-2">

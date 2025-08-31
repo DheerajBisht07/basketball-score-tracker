@@ -66,7 +66,7 @@ const Scoreboard = ({
           {/* Game Clock and Shot Clock placed below VS */}
           <div className="clocks-container">
             {/* Game Clock - Different color */}
-            <div className="game-clock-display mb-1">
+            <div className="game-clock-display mb-1 ">
               <div className="clock-label small text-info">Game Clock</div>
               <div className="clock-value text-info fw-bold">{formatTime(time)}</div>
             </div>
