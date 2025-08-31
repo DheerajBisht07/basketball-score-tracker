@@ -1,19 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
+// Shot Clock Component with Buzzer Sound (without useRef)
 const ShotClock = ({ shotClock, setShotClock, isTimerRunning }) => {
+  const [audio] = useState(new Audio(process.env.PUBLIC_URL + "/audio/shotClockBuzzer.mp3"));
+  
   useEffect(() => {
     let interval = null;
-    
+
     if (isTimerRunning && shotClock > 0) {
       interval = setInterval(() => {
         setShotClock(prev => prev - 1);
       }, 1000);
-    } else if (shotClock === 0) {
-      setShotClock(24);
     }
-    
+
     return () => clearInterval(interval);
   }, [isTimerRunning, shotClock, setShotClock]);
+
+  // Separate effect for buzzer sound when shotClock hits 0
+  useEffect(() => {
+    if (shotClock === 0) {
+      // Play the buzzer sound
+      audio.currentTime = 0;
+      audio.play().catch(e => console.log("Audio play failed:", e));
+      
+      // Reset the shot clock after a short delay to allow the sound to play
+      setTimeout(() => setShotClock(24), 1000);
+    }
+  }, [shotClock, setShotClock, audio]);
 
   const resetShotClock = () => {
     setShotClock(24);
