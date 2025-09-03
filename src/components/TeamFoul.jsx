@@ -6,9 +6,9 @@ const TeamFoul = () => {
 
   const updateFouls = (team, change) => {
     if (team === 'home') {
-      setHomeFouls(prev => Math.max(0, Math.min(5, prev + change)));
+      setHomeFouls(prev => Math.max(0, prev + change));
     } else {
-      setAwayFouls(prev => Math.max(0, Math.min(5, prev + change)));
+      setAwayFouls(prev => Math.max(0, prev + change));
     }
   };
 
@@ -17,83 +17,60 @@ const TeamFoul = () => {
     setAwayFouls(0);
   };
 
-  const getFoulColor = (foulCount) => {
-    if (foulCount >= 5) return 'text-danger'; // Red for 5+ fouls
-    if (foulCount >= 4) return 'text-warning'; // Yellow for 4 fouls
-    return 'text-white'; // White for less than 4
+  const getFoulColorClass = (foulCount) => {
+    if (foulCount >= 5) return 'text-danger';
+    if (foulCount >= 4) return 'text-warning';
+    return '';
+  };
+
+  const getFoulBackgroundClass = (foulCount) => {
+    if (foulCount >= 5) return 'bg-danger';
+    if (foulCount >= 4) return 'bg-warning';
+    return '';
   };
 
   return (
-    <div className="team-foul-container p-3 mb-3">
-      <div className="row align-items-center">
-        {/* Header */}
-        <div className="col-12 text-center mb-2">
-          <h5 className="mb-0">Team Fouls</h5>
-        </div>
-        
-        {/* Home Team Fouls */}
-        <div className="col-5 text-end">
-          <div className="team-foul-display mb-2">
-            <span className={`foul-count ${getFoulColor(homeFouls)}`}>
+    <div className="fouls-container mb-2">
+      <div className="row">
+        <div className="col-4">
+          <div className="fouls">
+            <div className="fouls-label small">TEAM FOULS</div>
+            <div className={`fouls-count ${getFoulBackgroundClass(homeFouls)} ${getFoulColorClass(homeFouls)}`}>
               {homeFouls}
-            </span>
+            </div>
           </div>
-          <div className="d-grid gap-1">
-            <button 
-              className="foul-btn btn-sm btn-success" 
-              onClick={() => updateFouls('home', 1)}
-              disabled={homeFouls >= 5}
-            >
-              +1 Foul
+          <div className="d-grid gap-1 mt-1">
+            <button className="btn btn-sm btn-success py-1" onClick={() => updateFouls('home', 1)}>
+              +1
             </button>
-            <button 
-              className="foul-btn btn-sm btn-danger" 
-              onClick={() => updateFouls('home', -1)}
-            >
-              -1 Foul
+            <button className="btn btn-sm btn-danger py-1" onClick={() => updateFouls('home', -1)}>
+              -1
             </button>
           </div>
         </div>
-        
-        {/* VS Separator */}
-        <div className="col-2 text-center">
-          <div className="text-white fw-bold">VS</div>
-        </div>
-        
-        {/* Away Team Fouls */}
-        <div className="col-5 text-start">
-          <div className="team-foul-display mb-2">
-            <span className={`foul-count ${getFoulColor(awayFouls)}`}>
-              {awayFouls}
-            </span>
-          </div>
-          <div className="d-grid gap-1">
-            <button 
-              className="foul-btn btn-sm btn-success" 
-              onClick={() => updateFouls('away', 1)}
-              disabled={awayFouls >= 5}
-            >
-              +1 Foul
-            </button>
-            <button 
-              className="foul-btn btn-sm btn-danger" 
-              onClick={() => updateFouls('away', -1)}
-            >
-              -1 Foul
-            </button>
-          </div>
-        </div>
-        
-        {/* Reset Button */}
-        <div className="col-12 text-center mt-2">
-          <button 
-            className="btn btn-sm btn-outline-warning"
-            onClick={resetFouls}
-          >
-            Reset All Fouls
+        <div className="col-4 text-center">
+          <button className="btn btn-sm btn-outline-warning mt-3 py-1" onClick={resetFouls}>
+            Reset All
           </button>
         </div>
+        <div className="col-4">
+          <div className="fouls">
+            <div className="fouls-label small">TEAM FOULS</div>
+            <div className={`fouls-count ${getFoulBackgroundClass(awayFouls)} ${getFoulColorClass(awayFouls)}`}>
+              {awayFouls}
+            </div>
+          </div>
+          <div className="d-grid gap-1 mt-1">
+            <button className="btn btn-sm btn-success py-1" onClick={() => updateFouls('away', 1)}>
+              +1
+            </button>
+            <button className="btn btn-sm btn-danger py-1" onClick={() => updateFouls('away', -1)}>
+              -1
+            </button>
+          </div>
+        </div>
       </div>
+      
     </div>
   );
 };

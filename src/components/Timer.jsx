@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 const Timer = ({ time, setTime, isRunning, setIsRunning }) => {
-  const [customTime, setCustomTime] = useState('');
   const [audio] = useState(new Audio(process.env.PUBLIC_URL + "/audio/gameClockBuzzer.mp3"));
 
   useEffect(() => {
@@ -16,26 +15,17 @@ const Timer = ({ time, setTime, isRunning, setIsRunning }) => {
     return () => clearInterval(interval);
   }, [isRunning, time, setTime]);
 
-  // Separate effect for buzzer sound when timer hits 0
   useEffect(() => {
     if (time === 0 && isRunning) {
-      // Play the buzzer sound
       audio.currentTime = 0;
       audio.play().catch(e => {
         alert("Game clock expired !!!");
         console.log("Audio play failed:", e);
       });
       
-      // Stop the timer
       setIsRunning(false);
     }
   }, [time, isRunning, setIsRunning, audio]);
-
-  const formatTime = (seconds) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  };
 
   const toggleTimer = () => {
     setIsRunning(!isRunning);
@@ -44,30 +34,20 @@ const Timer = ({ time, setTime, isRunning, setIsRunning }) => {
   const resetTimer = () => {
     setIsRunning(false);
     setTime(600);
-    setCustomTime('');
   };
 
   return (
-    <div className="timer-container text-center">
-      <h5 className="mb-2">Game Clock</h5>
-      {/* game clock is hidden uncomment to show game clock */}
-      {/* <div className="timer-display mb-2">{formatTime(time)}</div> */}
-      
-      {/* Toggle and Reset Buttons */}
-      <div className="d-flex justify-content-center gap-1 flex-wrap mb-2">
+    <div className="control-panel">
+      <div className="control-title">Game Clock Controls</div>
+      <div className="button-grid">
         <button 
-          className={`btn btn-sm control-btn ${isRunning ? 'btn-warning' : 'btn-success'}`}
+          className={`btn ${isRunning ? 'btn-danger' : 'btn-primary'}`}
           onClick={toggleTimer}
           disabled={time === 0}
         >
-          {isRunning ? 'Pause' : 'Start'}
+          {isRunning ? 'Stop Game Clock' : 'Start Game Clock'}
         </button>
-        <button 
-          className="btn btn-sm btn-danger control-btn" 
-          onClick={resetTimer}
-        >
-          Reset
-        </button>
+        <button className="btn" onClick={resetTimer}>Reset Game Clock</button>
       </div>
     </div>
   );

@@ -1,100 +1,182 @@
 .App {
-  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  background-color: #1a1a1a;
+  color: white;
   min-height: 100vh;
   padding: 10px;
 }
 
-.scoreboard {
-  background: linear-gradient(to right, #0d6efd, #0dcaf0);
-  border-radius: 10px;
-  color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+.scoreboard-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Team and score styling */
+.teams-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
 }
 
 .team-name {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 5px;
 }
 
-.score {
-  font-size: 4rem;
+.team-score {
+  font-size: 2.5rem;
   font-weight: bold;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-}
-
-.score-btn {
-  width: 50px;
-  height: 50px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s;
-}
-
-.score-btn:hover {
-  transform: scale(1.1);
-}
-
-.timer-container, .shotclock-container {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 10px;
-  color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.timer-display, .shotclock-display {
-  font-size: 1.8rem;
-  font-weight: bold;
-  background: rgba(0, 0, 0, 0.3);
+  background: #2a2a2a;
+  padding: 10px 20px;
   border-radius: 8px;
-  padding: 5px;
-  color: #fff;
+  width: 100%;
+  text-align: center;
 }
 
-.controls-container {
+/* Game info styling - Increased clock size */
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.period {
+  font-size: 1.2rem;
+  background: #2a2a2a;
+  padding: 8px 15px;
+  border-radius: 8px;
+}
+
+.game-clock-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.game-clock {
+  font-weight: bold;
+  background: #2a2a2a;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 2.8rem !important;
+}
+
+.shot-clock {
+  font-weight: bold;
+  background: #ff3b30;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 2.8rem !important;
+  margin-left: auto;
+}
+
+/* Fouls styling - Decreased size */
+.fouls-container {
+  background: #2a2a2a;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
 }
-.control-btn, .score-btn {
+
+.fouls {
+  text-align: center;
+}
+
+.fouls-label {
   font-size: 0.8rem;
-  padding: 4px 8px;
+  margin-bottom: 3px;
 }
 
-.control-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+.fouls-count {
+  font-size: 1.3rem;
+  font-weight: bold;
+  background: #1a1a1a;
+  padding: 6px;
+  border-radius: 8px;
 }
 
-.control-btn:active {
-  transform: translateY(0);
+/* Control panels */
+.control-panel {
+  background: #2a2a2a;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
 }
 
-@media (max-width: 768px) {
-  .team-name {
-    font-size: 1.4rem;
-  }
-  
-  .score {
-    font-size: 3rem;
-  }
-  
-  .timer-display, .shotclock-display {
-    font-size: 2.5rem;
-  }
+.control-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #ff3b30;
 }
 
-/* Modal Styles */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
 
+/* Buttons */
+.btn {
+  background: #3a3a3a;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #4a4a4a;
+  color: white;
+}
+
+.btn-primary {
+  background: #0066cc;
+}
+
+.btn-primary:hover {
+  background: #0077dd;
+}
+
+.btn-danger {
+  background: #cc3300;
+}
+
+.btn-danger:hover {
+  background: #dd4422;
+}
+
+.btn-success {
+  background: #00aa44;
+}
+
+.btn-success:hover {
+  background: #00bb55;
+}
+
+.btn-warning {
+  background: #ffcc00;
+  color: #000;
+}
+
+.btn-warning:hover {
+  background: #ffdd22;
+  color: #000;
+}
+
+/* Modal styles */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -109,322 +191,143 @@
 }
 
 .modal-content {
-  background: white;
+  background: #2a2a2a;
   padding: 20px;
   border-radius: 10px;
   width: 90%;
   max-width: 400px;
-}
-
-.modal-header {
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  color: white;
 }
 
 .form-control {
-  border-radius: 8px;
-  padding: 10px 15px;
-  border: 2px solid #ddd;
-  transition: all 0.3s;
+  background: #3a3a3a;
+  border: 1px solid #4a4a4a;
+  color: white;
 }
 
 .form-control:focus {
-  border-color: #4a6572;
-  box-shadow: 0 0 0 0.2rem rgba(74, 101, 114, 0.25);
-}
-
-.alert {
-  border-radius: 8px;
-  border: none;
-}
-.combined-components {
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 15px;
-  padding: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
-/* Responsive adjustments */
-@media (max-width: 576px) {
-  .score {
-    font-size: 2rem !important;
-  }
-  
-  .team-name {
-    font-size: 0.9rem;
-  }
-  
-  .timer-display, .shotclock-display {
-    font-size: 1.5rem;
-  }
-}
-
-/* Add to your existing CSS */
-.team-foul-container {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  background: #3a3a3a;
+  border-color: #ff3b30;
   color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 0.2rem rgba(255, 59, 48, 0.25);
 }
 
-.team-foul-display {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  padding: 8px;
-  margin: 0 auto;
-  max-width: 80px;
+.form-label {
+  color: white;
 }
 
-.foul-count {
-  font-size: 1.8rem;
-  font-weight: bold;
-  display: block;
+.form-select {
+  background: #3a3a3a;
+  border: 1px solid #4a4a4a;
+  color: white;
 }
 
-.foul-btn {
-  font-size: 0.75rem;
-  padding: 4px 6px;
-  min-width: 70px;
+.form-select:focus {
+  background: #3a3a3a;
+  border-color: #ff3b30;
+  color: white;
+  box-shadow: 0 0 0 0.2rem rgba(255, 59, 48, 0.25);
 }
 
 /* Responsive adjustments */
-@media (max-width: 576px) {
-  .team-foul-container {
-    padding: 15px 10px;
-  }
-  
-  .foul-count {
-    font-size: 1.5rem;
-  }
-  
-  .foul-btn {
-    font-size: 0.7rem;
-    padding: 3px 5px;
-    min-width: 60px;
-  }
-  
-  .team-foul-display {
-    max-width: 60px;
-    padding: 6px;
-  }
-}
-
-@media (max-width: 400px) {
-  .foul-btn {
-    min-width: 50px;
-    font-size: 0.65rem;
-    padding: 2px 4px;
-  }
-  
-  .foul-count {
-    font-size: 1.3rem;
-  }
-}
-/* Responsive adjustments */
-
-/* Modal adjustments for mobile */
-.modal-content {
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
-/* Ensure no horizontal scrolling on mobile */
-.combined-components {
-  overflow-x: hidden;
-}
-
-/* Add these styles to your App.css */
-
-/* Clocks container */
-/* CLOCK STYLING UPDATES */
-.game-clock-display {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  padding: 8px 5px; /* Increased padding to prevent overflow */
-  width: 100%;
-  text-align: center;
-  box-sizing: border-box; /* Ensure padding is included in width */
-  margin: 0 auto; /* Center the clock displays */
-  max-width: 120px; /* Limit maximum width */
-}
-
-.game-clock-display .clock-value {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #FFFF00 !important;
-  padding: 0 10px;
-  margin: 0;
-  line-height: 1.2; /* Proper line height */
-  display: block; /* Ensure it's a block element */
-  width: 100%; /* Full width within container */
-  text-align: center; /* Center text */
-  box-sizing: border-box; /* Include padding in width */
-}
-
-.game-clock-display .clock-label {
-  color: #FFFF00 !important;
-  margin-bottom: 4px;
-  opacity: 0.9;
-  font-size: 0.85rem;
-  display: block;
-  width: 100%;
-  text-align: center;
-  box-sizing: border-box;
-  font-weight: bold;
-}
-
-
-.shot-clock-display {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  padding: 8px 5px; /* Increased padding to prevent overflow */
-  width: 100%;
-  text-align: center;
-  box-sizing: border-box; /* Ensure padding is included in width */
-  margin: 0 auto; /* Center the clock displays */
-  max-width: 120px; /* Limit maximum width */
-}
-
-.shot-clock-display .clock-value {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #000000 !important;
-  padding: 0 10px;
-  margin: 0;
-  line-height: 1.2; /* Proper line height */
-  display: block; /* Ensure it's a block element */
-  width: 100%; /* Full width within container */
-  text-align: center; /* Center text */
-  box-sizing: border-box; /* Include padding in width */
-}
-
-.shot-clock-display .clock-label {
-  color: #000000 !important;
-  margin-bottom: 4px;
-  opacity: 0.9;
-  font-size: 0.85rem;
-  display: block;
-  width: 100%;
-  text-align: center;
-  box-sizing: border-box;
-  font-weight: bold;
-}
-
-/* Clocks container - ensures proper alignment */
-.clocks-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
-  width: 100%;
-}
-
-/* Responsive adjustments for mobile */
-/* Responsive adjustments for mobile */
 @media (max-width: 768px) {
-  .clocks-container {
-    gap: 8px;
+  .team-name {
+    font-size: 1rem;
   }
   
-  .game-clock-display, 
-  .shot-clock-display {
-    padding: 8px 6px;
-    max-width: 110px; /* Increased width for game clock */
-    background: none; /* Keep background visible */
+  .team-score {
+    font-size: 2rem;
   }
   
-  .game-clock-display .clock-value,
-  .shot-clock-display .clock-value {
-    font-size: 1.5rem; /* Slightly smaller for better fit */
-    padding: 0 5px;
-    margin: 0 auto; /* Ensure centering */
-    width: fit-content; /* Allow natural width */
-  }
-  .game-clock-display .clock-value{
-    margin-left: -12px;
+  .period {
+    font-size: 1rem;
+    padding: 6px 10px;
   }
   
-  .game-clock-display .clock-label,
-  .shot-clock-display .clock-label {
-    font-size: 1.2rem;
-    margin: 0 auto 4px auto; /* Center and add bottom margin */
-    width: fit-content; /* Allow natural width */
+  .game-clock, .shot-clock {
+    font-size: 2rem !important;
+    padding: 8px 15px;
+  }
+  
+  .button-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .fouls-label {
+    font-size: 0.7rem;
+  }
+  
+  .fouls-count {
+    font-size: 1.1rem;
+    padding: 4px;
   }
 }
 
 @media (max-width: 576px) {
-  .game-clock-display, 
-  .shot-clock-display {
-    padding: 6px 4px;
-    max-width: 105px; 
-    background: none; /* Keep background visible */
+  .game-clock, .shot-clock {
+    font-size: 1.8rem !important;
+    padding: 6px 12px;
   }
   
-  .game-clock-display .clock-value,
-  .shot-clock-display .clock-value {
-    font-size: 1.3rem; 
-    padding: 0 4px;
-    margin: 0 auto; /* Ensure centering */
-    width: fit-content; /* Allow natural width */
-    letter-spacing: -0.5px; /* Slightly compress for 4 digits */
-  }
-
-  
-  .game-clock-display .clock-label,
-  .shot-clock-display .clock-label {
-    font-size: 1rem;
-    margin: 0 auto 3px auto; /* Center and add bottom margin */
-    width: fit-content; /* Allow natural width */
+  .period {
+    font-size: 0.9rem;
+    padding: 5px 8px;
   }
 }
 
-@media (max-width: 400px) {
-  .game-clock-display, 
-  .shot-clock-display {
-    padding: 4px 2px;
-    max-width: 90px;
-    background: none; /* Keep background visible */
+/* Add these styles to your existing App.css */
+
+/* Foul status indicators */
+.foul-status-indicators {
+  font-size: 0.7rem;
+}
+
+/* Foul count color states */
+.fouls-count.text-warning {
+  color: #ffc107 !important;
+  font-weight: bolder;
+}
+
+.fouls-count.text-danger {
+  color: #dc3545 !important;
+  font-weight: bolder;
+}
+
+.fouls-count.bg-warning {
+  background-color: rgba(255, 193, 7, 0.2) !important;
+  border: 1px solid #ffc107;
+}
+
+.fouls-count.bg-danger {
+  background-color: rgba(220, 53, 69, 0.2) !important;
+  border: 1px solid #dc3545;
+}
+
+/* Animation for foul count changes */
+.fouls-count {
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments for foul indicators */
+@media (max-width: 768px) {
+  .foul-status-indicators {
+    font-size: 0.6rem;
   }
   
-  .game-clock-display .clock-value,
-  .shot-clock-display .clock-value {
-    font-size: 1rem;
-    padding: 0 3px;
-    margin: 0 auto; /* Ensure centering */
-    width: fit-content; /* Allow natural width */
-    letter-spacing: -0.5px; /* Slightly compress for 4 digits */
+  .foul-status-indicators .badge {
+    padding: 0.3em 0.5em;
   }
-   .game-clock-display .clock-value{
-    margin-left: -10vwpx;
+}
+
+@media (max-width: 576px) {
+  .foul-status-indicators {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
   }
   
-  .game-clock-display .clock-label,
-  .shot-clock-display .clock-label {
-    font-size: 0.8rem;
-    margin: 0 auto 2px auto; /* Center and add bottom margin */
-    width: fit-content; /* Allow natural width */
+  .foul-status-indicators .badge {
+    width: 100%;
+    text-align: center;
   }
-}
-
-.game-clock-display .clock-value,
-.shot-clock-display .clock-value {
-  /* Change from width: 100% to: */
-  width: fit-content;
-  margin: 0 auto;
-}
-
-.game-clock-display .clock-label,
-.shot-clock-display .clock-label {
-  /* Change from width: 100% to: */
-  width: fit-content;
-  margin: 0 auto 4px auto;
-}
-
-/* Ensure the VS separator and clocks container are properly aligned */
-.col-2.text-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }

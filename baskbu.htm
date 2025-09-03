@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basketball Scoreboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .scoreboard {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+            padding: 10px;
+        }
+        
+        /* Top section with team names and scores */
+        .teams-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 30%;
+        }
+        
+        .team-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .team-score {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 10px 20px;
+            border-radius: 8px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        /* Central game info section */
+        .game-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .period {
+            font-size: 1.2rem;
+            background: #2a2a2a;
+            padding: 8px 15px;
+            border-radius: 8px;
+        }
+        
+        .game-clock {
+            font-size: 2.2rem;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        
+        .shot-clock {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: #ff3b30;
+            padding: 8px 15px;
+            border-radius: 8px;
+        }
+        
+        /* Fouls section */
+        .fouls-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .fouls {
+            width: 30%;
+            text-align: center;
+        }
+        
+        .fouls-label {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .fouls-count {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: #2a2a2a;
+            padding: 8px;
+            border-radius: 8px;
+        }
+        
+        /* Players section */
+        .players-container {
+            display: flex;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+        
+        .team-players {
+            width: 45%;
+        }
+        
+        .player-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 10px;
+            background: #333;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            margin-bottom: 5px;
+        }
+        
+        .player-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 10px;
+            background: #2a2a2a;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+        
+        .player-number {
+            font-weight: bold;
+            width: 20%;
+        }
+        
+        .player-points {
+            font-weight: bold;
+            width: 20%;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="scoreboard">
+        <!-- Teams and Scores -->
+        <div class="teams-container">
+            <div class="team">
+                <div class="team-name">HOME</div>
+                <div class="team-score">72</div>
+            </div>
+            <div class="team">
+                <!-- Empty spacer -->
+            </div>
+            <div class="team">
+                <div class="team-name">AWAY</div>
+                <div class="team-score">68</div>
+            </div>
+        </div>
+        
+        <!-- Game Info -->
+        <div class="game-info">
+            <div class="period">3rd QTR</div>
+            <div class="game-clock">08:24</div>
+            <div class="shot-clock">14</div>
+        </div>
+        
+        <!-- Fouls -->
+        <div class="fouls-container">
+            <div class="fouls">
+                <div class="fouls-label">TEAM FOULS</div>
+                <div class="fouls-count">4</div>
+            </div>
+            <div class="fouls">
+                <!-- Empty spacer -->
+            </div>
+            <div class="fouls">
+                <div class="fouls-label">TEAM FOULS</div>
+                <div class="fouls-count">5</div>
+            </div>
+        </div>
+        
+        <!-- Players -->
+        <div class="players-container">
+            <div class="team-players">
+                <div class="player-header">
+                    <span>#</span>
+                    <span>PTS</span>
+                </div>
+                <div class="player-row">
+                    <span class="player-number">23</span>
+                    <span class="player-points">18</span>
+                </div>
+                <div class="player-row">
+                    <span class="player-number">7</span>
+                    <span class="player-points">12</span>
+                </div>
+                <div class="player-row">
+                    <span class="player-number">14</span>
+                    <span class="player-points">9</span>
+                </div>
+                <div class="player-row">
+                    <span class="player-number">33</span>
+                    <span class="player-points">15</span>
+                </div>
+                <div class="player-row">
+                    <span class="player-number">21</span>
+                    <span class="player-points">8</span>
+                </div>
+            </div>
+            
+            <div class="team-players">
+                <div class="player-header">
+                    <span>#</span>
+                    <span>PTS</span>
+                </div>
+                <div class="player-row">
+                    <span class="player-number">3</span>
+                    <span class="player-points">22</span>
+                </div>
+                <div class="player-row">
+                    <span class="player-number">11</span>
+                    <span class="player-points">6</span>
+                </div>
+                <div class="player-row">
+                    <span class="player-number">8</span>
+                    <span class="player-points">14</span>
+                </div>
+                <div class="player-row">
+                    <span class="player-number">24</span>
+                    <span class="player-points">10</span>
+                </div>
+                <div class="player-row">
+                    <span class="player-number">17</span>
+                    <span class="player-points">6</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

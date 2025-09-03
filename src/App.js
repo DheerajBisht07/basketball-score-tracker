@@ -13,43 +13,32 @@ function App() {
   const [time, setTime] = useState(600);
   const [shotClock, setShotClock] = useState(24);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
-  const [homeTeamName, setHomeTeamName] = useState('Home Team');
-  const [awayTeamName, setAwayTeamName] = useState('Away Team');
+  const [homeTeamName, setHomeTeamName] = useState('HOME');
+  const [awayTeamName, setAwayTeamName] = useState('AWAY');
+  const [period, setPeriod] = useState('1st QTR');
 
   return (
     <div className="App">
-      <div className="container-fluid py-3">
-        <header className="text-center mb-3">
-          <h4 className="text-white mb-0">Basketball Scoreboard</h4>
-        </header>
-        
-        {/* Combined components container */}
-        <div className="combined-components">
+      <div className="container-fluid p-0">
+        <div className="scoreboard-container">
           {/* Scoreboard with integrated clocks */}
-          <div className="row mb-3">
-            <div className="col-12">
-              <Scoreboard 
-                homeScore={homeScore} 
-                awayScore={awayScore} 
-                setHomeScore={setHomeScore}
-                setAwayScore={setAwayScore}
-                homeTeamName={homeTeamName}
-                awayTeamName={awayTeamName}
-                time={time}
-                shotClock={shotClock}
-              />
-            </div>
-          </div>
+          <Scoreboard 
+            homeScore={homeScore} 
+            awayScore={awayScore} 
+            setHomeScore={setHomeScore}
+            setAwayScore={setAwayScore}
+            homeTeamName={homeTeamName}
+            awayTeamName={awayTeamName}
+            time={time}
+            shotClock={shotClock}
+            period={period}
+          />
           
           {/* Team Fouls Component */}
-          <div className="row mb-3">
-            <div className="col-12">
-              <TeamFoul />
-            </div>
-          </div>
+          <TeamFoul />
           
           {/* Clock controls and game controls */}
-          <div className="row g-2">
+          <div className="row g-2 mt-3">
             <div className="col-md-6">
               <Timer 
                 time={time} 
@@ -76,6 +65,8 @@ function App() {
                 setAwayTeamName={setAwayTeamName}
                 homeTeamName={homeTeamName}
                 awayTeamName={awayTeamName}
+                period={period}
+                setPeriod={setPeriod}
               />
             </div>
           </div>

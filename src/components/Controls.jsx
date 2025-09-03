@@ -9,7 +9,9 @@ const Controls = ({
   setHomeTeamName,
   setAwayTeamName,
   homeTeamName,
-  awayTeamName
+  awayTeamName,
+  period,
+  setPeriod
 }) => {
   const [showTeamModal, setShowTeamModal] = useState(false);
   const [showTimeModal, setShowTimeModal] = useState(false);
@@ -60,23 +62,30 @@ const Controls = ({
     setShowTimeModal(false);
   };
 
+  const periods = ['1st QTR', '2nd QTR', '3rd QTR', '4th QTR', 'OT'];
+
   return (
-    <div className="controls-container">
-      <div className="d-grid gap-2">
-        <button 
-          className="btn btn-outline-light btn-sm"
-          onClick={() => setShowTeamModal(true)}
-        >
+    <div className="control-panel">
+      <div className="control-title">Game Controls</div>
+      
+      <div className="button-grid mb-3">
+        <button className="btn btn-outline-light" onClick={() => setShowTeamModal(true)}>
           Change Team Names
         </button>
-        <button 
-          className="btn btn-outline-info btn-sm"
-          onClick={() => setShowTimeModal(true)}
-        >
+        <button className="btn btn-outline-light" onClick={() => setShowTimeModal(true)}>
           Set Custom Times
         </button>
+        <select 
+          className="form-select" 
+          value={period} 
+          onChange={(e) => setPeriod(e.target.value)}
+        >
+          {periods.map(p => (
+            <option key={p} value={p}>{p}</option>
+          ))}
+        </select>
         <button 
-          className="btn btn-outline-warning btn-sm"
+          className="btn btn-danger"
           onClick={() => {
             setHomeScore(0);
             setAwayScore(0);
@@ -113,16 +122,10 @@ const Controls = ({
               />
             </div>
             <div className="d-flex gap-2">
-              <button 
-                className="btn btn-primary"
-                onClick={updateTeamNames}
-              >
+              <button className="btn btn-primary" onClick={updateTeamNames}>
                 Save
               </button>
-              <button 
-                className="btn btn-secondary"
-                onClick={() => setShowTeamModal(false)}
-              >
+              <button className="btn btn-secondary" onClick={() => setShowTeamModal(false)}>
                 Cancel
               </button>
             </div>
@@ -149,7 +152,7 @@ const Controls = ({
               />
               <div className="d-grid mt-2">
                 <button 
-                  className="btn btn-info btn-sm"
+                  className="btn btn-info"
                   onClick={setCustomGameClock}
                   disabled={!customGameTime}
                 >
@@ -171,7 +174,7 @@ const Controls = ({
               />
               <div className="d-grid mt-2">
                 <button 
-                  className="btn btn-info btn-sm"
+                  className="btn btn-info"
                   onClick={setCustomShotClockTime}
                   disabled={!customShotTime}
                 >
@@ -181,10 +184,7 @@ const Controls = ({
             </div>
             
             <div className="d-flex gap-2">
-              <button 
-                className="btn btn-secondary"
-                onClick={() => setShowTimeModal(false)}
-              >
+              <button className="btn btn-secondary" onClick={() => setShowTimeModal(false)}>
                 Close
               </button>
             </div>
